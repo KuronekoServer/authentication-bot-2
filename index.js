@@ -1,7 +1,12 @@
 const Keyv = require('keyv')
 const { setTimeout } = require('timers/promises');
 const { Client, Intents, MessageAttachment } = require('discord.js');
-  const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+     allowedMentions: {
+        parse: []
+      }
+});
 //client関数
 const ser = new Keyv('sqlite://db.sqlite', { table: 'certification' })
 //DBのテーブル作成
