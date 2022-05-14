@@ -1,0 +1,38 @@
+[
+    {
+        "name": "auth",
+        "description": "認証後につけたいロールを選択してください。",
+        "options": [
+            {
+                "type": "ROLE",
+                "name": "role",
+                "description": "ロールを選択。",
+                "required": true
+            },
+            {
+                "type": "STRING",
+                "name": "option",
+                "description": "認証タイプを選択してください",
+                "required": true,
+                "choices": [
+                    {
+                        "name": "ウェブ認証",
+                        "value": "web"
+                    },
+                    {
+                        "name": "画像認証",
+                        "value": "image"
+                    },
+                    {
+                        "name":"パスワード認証",
+                        "value":"password"
+                    },
+                    {
+                        "name":"インプットテキスト認証",
+                        "value":"input"
+                    }
+                ]
+            }
+        ]
+    }
+]
