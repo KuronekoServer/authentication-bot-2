@@ -9,7 +9,7 @@ const BitlyClient = require('bitly').BitlyClient;
 const bitly = new BitlyClient(config.bitly);
 const write = data => {
   const datas = require("./data.json");
-  guildId = data.gd;
+  const guildId = data.gd;
   const tmp = new Object();
   if (!datas.some(() => guildId)) {
     tmp[guildId] = data.options;
@@ -284,7 +284,7 @@ client.on("interactionCreate", async interaction => {
         client: client,
         interaction: interaction
       });
-    }
+    };
   };
   /*   セレクトメニュー   */
   if (interaction.isSelectMenu()) {
@@ -304,7 +304,7 @@ client.on("interactionCreate", async interaction => {
         ephemeral: true
       });
     };
-  }
+  };
 });
 client.on("modalSubmit", async modal => {
   await modal.deferReply({ ephemeral: true });
@@ -348,7 +348,7 @@ client.on("modalSubmit", async modal => {
   if (modal.customId == "modal_image_start") {
     modal.followUp({
       embeds: [{ title: "作成に成功しました", color: 0x00ff22 }]
-    })
+    });
     modal.channel.send({
       embeds: [{
         title: "認証",
@@ -360,7 +360,7 @@ client.on("modalSubmit", async modal => {
   };
   if (modal.customId.startsWith("modal_image_check")) {
     const input = modal.getTextInputValue('image_check');
-    const check = modal.customId.split(",")[1]
+    const check = modal.customId.split(",")[1];
     if (input == check) {
       modal.member.roles.add(data.role)
         .catch(() => {
@@ -381,7 +381,7 @@ client.on("modalSubmit", async modal => {
               description: data.btms || "認証に成功しました"
             }]
           });
-        })
+        });
     } else {
       modal.followUp({
         embes: [{
@@ -389,8 +389,8 @@ client.on("modalSubmit", async modal => {
           title: "間違っています",
           ephemeral: true
         }]
-      })
-    }
-  }
+      });
+    };
+  };
 });
 client.login(config.token)
